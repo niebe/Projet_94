@@ -1,0 +1,13 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping>
+<hibernate-mapping>
+    <class name="model.User" table="user">
+        <id column="ID" name="id" type="java.lang.Integer" />
+        <property column="login" name="login" type="java.lang.String" />
+        <property column="password" name="password" type="java.lang.String" />
+        <property column="email" name="email" type="java.lang.String" />
+        <property column="profileId" name="profileId" type="java.lang.Integer" />
+        <property column="first_name" name="first_name" type="java.lang.String" />
+        <property column="last_name" name="last_name" type="java.lang.String" />
+    </class>
+</hibernate-mapping>
