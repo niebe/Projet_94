@@ -11,6 +11,11 @@
 	<servlet>
 		<servlet-name>DashBoardServlet</servlet-name>
 		<servlet-class>controller.DashBoardServlet</servlet-class>
+	</servlet>
+	
+	<servlet>
+		<servlet-name>TemplateServlet</servlet-name>
+		<servlet-class>controller.TemplateServlet</servlet-class>
 	</servlet>	
 
 	<servlet-mapping>
@@ -23,5 +28,9 @@
 		<url-pattern>/dashboard</url-pattern>
 	</servlet-mapping>
 	
+	<servlet-mapping>
+		<servlet-name>TemplateServlet</servlet-name>
+		<url-pattern>/template</url-pattern>
+	</servlet-mapping>
 
 </web-app>

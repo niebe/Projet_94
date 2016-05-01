@@ -9,7 +9,11 @@ public class User {
     private int profileId;
     private String first_name;
     private String last_name;
- 
+    
+    public User(){
+    	super();
+    }
+    
     public int getId() {
         return id;
     }

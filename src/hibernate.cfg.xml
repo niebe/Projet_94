@@ -13,5 +13,7 @@
         <property name="show_sql">true</property>
         <property name="format_sql">true</property>
         <mapping resource="model/user.hbm.xml" />
+        <mapping resource="model/field.hbm.xml" />
+        <mapping resource="model/template.hbm.xml" />
     </session-factory>
 </hibernate-configuration>

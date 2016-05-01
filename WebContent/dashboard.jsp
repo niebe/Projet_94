@@ -6,6 +6,7 @@
 <meta charset="utf-8" />
 <title>Insert title here</title>
 <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
+<link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
 <link rel="stylesheet" type="text/css"
 	href="//cdn.datatables.net/1.10.11/css/jquery.dataTables.css">
 <link href="css/dashboard.css" rel="stylesheet">
@@ -19,17 +20,17 @@
 				<a class="navbar-brand" href="#">Nom du site</a>
 			</div>
 			<ul class="nav navbar-nav">
-				<li class="active"><a href="#">Dashboard</a></li>
-				<li><a href="#">Create a Degree</a></li>
+				<li class="active"><a id="templateBtn" href="#">Dashboard</a></li>
+				<li><a href="#" id="btnCreateTemplate">Create a Degree</a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right inline-form">
 				<li><a href="login">Log Out</a></li>
 			</ul>
 		</div>
 		</nav>
-		<div id="degreeList" class="panel panel-primary">
+		<div id="templateList" class="panel panel-primary">
 			<div class="panel-heading">
-				<h3 class="panel-title">List of degrees</h3>
+				<h3 class="panel-title">Template</h3>
 			</div>
 			<table id="degreeTable" class="table table-striped table-condensed">
 				<thead>
@@ -58,8 +59,23 @@
 					</tr>
 			</table>
 		</div>
-		<div id="degreeForm" class="panel panel-primary hidden">
-		
+		<div id="templateForm" class="panel panel-primary">
+			<form action="template" method="post">
+				<div class="form-group">
+			    	<label for="templateName">Template Name : </label>
+	    			<input type="text" class="form-control" name="templateName" required>
+				</div>
+				<div class="form-group form-inline fieldInput">
+					<input name='fieldLabel' class='form-control' type='text' placeholder='Label of field' />					
+					<select class='form-control' name='fieldType'>
+						<option value="number">Number</option>
+						<option value="text">Text</option>
+						<option value="date">Date</option>
+					</select>
+				</div>
+				<button id="addFieldBtn" class="btn btn btn-primary"><i class="fa fa-plus"></i> Add a field</button>
+				<button id="saveModifTemplate" type="submit" class="btn btn btn-success pull-right">Send</button>
+			</form>
 		</div>
 	</div>
 	<script src="js/jquery-1.12.3.min.js"></script>

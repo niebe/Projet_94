@@ -1,0 +1,11 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping>
+<hibernate-mapping>
+    <class name="model.Field" table="field">
+        <id column="id_field" name="id" type="java.lang.Integer" />
+        <property column="field_name" name="name" type="java.lang.String" />
+        <property column="field_type" name="type" type="java.lang.String" />
+        <property column="alterable" name="alterable" type="java.lang.Boolean" />
+        <many-to-one column="template_id" name="template" class="model.Template" />
+    </class>
+</hibernate-mapping>

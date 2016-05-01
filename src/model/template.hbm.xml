@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping>
+<hibernate-mapping>
+    <class name="model.Template" table="template">
+        <id column="id_template" name="id" type="java.lang.Integer" />
+        <property column="title" name="title" type="java.lang.String" />
+        <property column="enable" name="enable" type="java.lang.Boolean" />
+    </class>
+</hibernate-mapping>

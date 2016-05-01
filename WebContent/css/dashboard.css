@@ -2,3 +2,15 @@
   display: inline-block;
   width: 100px;
 }
+
+#templateForm{
+	display:none;
+}
+
+#templateForm form{
+	padding:20px;
+}
+
+.removeFieldBtn{
+	margin-left:10px;
+}
