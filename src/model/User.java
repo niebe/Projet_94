@@ -6,7 +6,7 @@ public class User {
     private String login;
     private String password;
     private String email;
-    private int profileId;
+    private Profile profile;
     private String first_name;
     private String last_name;
     
@@ -46,12 +46,12 @@ public class User {
         this.email = email;
     }
 
-	public int getProfileId() {
-		return profileId;
+	public Profile getProfile() {
+		return profile;
 	}
 
-	public void setProfileId(int profileId) {
-		this.profileId = profileId;
+	public void setProfile(Profile profile) {
+		this.profile = profile;
 	}
 
 	public String getFirst_name() {

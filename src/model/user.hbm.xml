@@ -6,7 +6,7 @@
         <property column="login" name="login" type="java.lang.String" />
         <property column="password" name="password" type="java.lang.String" />
         <property column="email" name="email" type="java.lang.String" />
-        <property column="profileId" name="profileId" type="java.lang.Integer" />
+        <many-to-one column="profileId" name="profile" class="model.Profile" />
         <property column="first_name" name="first_name" type="java.lang.String" />
         <property column="last_name" name="last_name" type="java.lang.String" />
     </class>

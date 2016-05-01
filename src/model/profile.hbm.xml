@@ -1,0 +1,8 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping>
+<hibernate-mapping>
+    <class name="model.Profile" table="Profile">
+        <id column="id_profile" name="id" type="java.lang.Integer" />
+        <property column="profile_name" name="name" type="java.lang.String" />
+    </class>
+</hibernate-mapping>

@@ -1,0 +1,10 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping>
+<hibernate-mapping>
+    <class name="model.Value" table="value">
+        <id column="id_value" name="id" type="java.lang.Integer" />
+        <property column="value_text" name="text" type="java.lang.String" />
+        <many-to-one column="id_degree" name="degree" class="model.Degree" />
+        <many-to-one column="id_field" name="field" class="model.Field" />
+    </class>
+</hibernate-mapping>

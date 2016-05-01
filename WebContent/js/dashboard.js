@@ -2,13 +2,13 @@ $(document).ready( function () {
     $('#degreeTable').DataTable();
     
     $("#btnCreateTemplate").click(function(){
-    	$("#templateForm").show();    	
-    	$("#templateList").hide();
+    	$(".elementForm").show();    	
+    	$(".listElement").hide();
     });
     
     $("#templateBtn").click(function(){
-    	$("#templateForm").hide();    	
-    	$("#templateList").show();
+    	$(".elementForm").hide();    	
+    	$(".listElement").show();
     });
     
     $("#addFieldBtn").click(function(){

@@ -15,5 +15,8 @@
         <mapping resource="model/user.hbm.xml" />
         <mapping resource="model/field.hbm.xml" />
         <mapping resource="model/template.hbm.xml" />
+        <mapping resource="model/profile.hbm.xml" />
+        <mapping resource="model/degree.hbm.xml" />
+        <mapping resource="model/value.hbm.xml" />
     </session-factory>
 </hibernate-configuration>

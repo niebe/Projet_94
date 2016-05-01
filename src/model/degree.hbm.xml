@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="UTF-8"?>
+<!DOCTYPE hibernate-mapping>
+<hibernate-mapping>
+    <class name="model.Degree" table="degree">
+        <id column="id_degree" name="id" type="java.lang.Integer" />
+        <many-to-one column="id_template" name="template" class="model.Template" />
+        <property column="degree_enable" name="enable" type="java.lang.Boolean" />
+    </class>
+</hibernate-mapping>
