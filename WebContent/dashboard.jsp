@@ -28,7 +28,7 @@
 				<li><a href="#" id="btnCreateTemplate">Create a <% if(profileId == 1)out.print("Template");else{ out.print("Degree");}%></a></li>
 			</ul>
 			<ul class="nav navbar-nav navbar-right inline-form">
-				<li><a href="login">Log Out</a></li>
+				<li><a href="logout">Log Out</a></li>
 			</ul>
 		</div>
 		</nav>		
@@ -106,19 +106,23 @@
 					model.Template model = (model.Template) request.getAttribute("template");
 					List<Field> questions =(List<Field>) request.getAttribute("fields");
 				%>
-				<form action="" method="post">
+				<form action="degree" method="post">
 					<div class="form-group">
 				    	<h3><% out.print(model.getTitle());%></h3>
+					</div>
+					<div class="form-group">
+				    	<label for="degreeId">Degree ID : </label>
+		    			<input type="text" class="form-control" name="degreeId" required>
 					</div>
 					<% for(int i = 0 ; i < questions.size(); i++){ %>
 						<div class="form-group form-inline degreeFieldInput">
 							<label><% out.print(questions.get(i).getName() + " : "); %></label>
 							<% if(questions.get(i).getType().equals("number")){ %>
-								<input name='degreeValue' class='form-control' type='text' placeholder='Enter a number...' />					
+								<input name='value_<% out.print(questions.get(i).getId());%>' class='form-control' type='text' placeholder='Enter a number...' />					
 							<% }else if(questions.get(i).getType().equals("text")){ %>
-								<input name='degreeValue' class='form-control' type='text' placeholder='Please complete...' />
+								<input name='value_<% out.print(questions.get(i).getId());%>' class='form-control' type='text' placeholder='Please complete...' />
 							<% }else if(questions.get(i).getType().equals("date")){ %>	
-								<input name='degreeValue' class='form-control' type='text' placeholder='Choose a date...' />
+								<input name='value_<% out.print(questions.get(i).getId());%>' class='form-control' type='text' placeholder='Choose a date...' />
 							<% } %>	
 						</div>
 					<% }%>
