@@ -7,7 +7,7 @@
 <html>
 <head>
 <meta charset="utf-8" />
-<title>Insert title here</title>
+<title>Easy Web Input - Dashboard</title>
 <link href="bootstrap/css/bootstrap.min.css" rel="stylesheet">
 <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/font-awesome/4.6.1/css/font-awesome.min.css">
 <link rel="stylesheet" type="text/css"
@@ -21,7 +21,7 @@
 		<nav class="navbar navbar-default">
 		<div class="container-fluid">
 			<div class="navbar-header">
-				<a class="navbar-brand" href="#">Nom du site</a>
+				<a class="navbar-brand" href="#">Easy Web Input</a>
 			</div>
 			<ul class="nav navbar-nav">			
 				<li class="active"><a id="templateBtn" href="#"><% if(profileId == 1)out.print("Template");else{ out.print("Degrees");}%></a></li>

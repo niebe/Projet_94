@@ -7,6 +7,7 @@ import javax.servlet.ServletException;
 import javax.servlet.http.HttpServlet;
 import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
+import javax.servlet.http.HttpSession;
 
 import model.Degree;
 import model.Field;
@@ -19,14 +20,20 @@ import dao.UserDAO;
 
 public class DashBoardServlet extends HttpServlet{
     protected void doGet(HttpServletRequest request, HttpServletResponse response) throws ServletException, IOException{
-    	User user = UserDAO.getById(1);
+    	//Recuperation de la session en cours
+    	HttpSession session = request.getSession();
+    	//Recuperation du Bean user
+    	User user = (User) session.getAttribute("sessionUtilisateur");
+    	
+    	User userComplete = UserDAO.getByLogin(user.getLogin());
+    	
     	Template lastTemplate = TemplateDAO.getTemplate();
     	if(lastTemplate != null){    		
     		List<Field> fields = FieldDAO.getFieldOfTemplate(lastTemplate.getId());
     		request.setAttribute("template", lastTemplate);
     		request.setAttribute("fields", fields);
     	}  
-    	if(user.getProfile().getId() == 1){
+    	if(userComplete.getProfile().getId() == 1){
     		request.setAttribute("profileId", 1);
     	}
     	else{
