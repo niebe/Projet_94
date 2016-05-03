@@ -40,7 +40,7 @@ public class DegreeDAO {
         degree.setEnable(true);
         Integer id = (Integer) session.save(degree);
         degree.setId(id);
-        degree.setTemplate(template);
+        //degree.setTemplate(template);
         transaction.commit();
         session.close();
         return degree;        

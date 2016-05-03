@@ -9,8 +9,10 @@ import javax.servlet.http.HttpServletRequest;
 import javax.servlet.http.HttpServletResponse;
 
 import model.Degree;
+import model.Field;
 import model.Template;
 import dao.FieldDAO;
+import dao.ValueDAO;
 import dao.DegreeDAO;
 
 public class DegreeServlet extends HttpServlet{
@@ -22,12 +24,20 @@ public class DegreeServlet extends HttpServlet{
 		Enumeration en = request.getParameterNames();
 		while(en.hasMoreElements()){
 			Object objOri=en.nextElement();
+			//Recuperation du field par ID
 			String name=(String)objOri;
+			String[] id=name.split("_");
+			String bddId = id[1];
+			Field field = FieldDAO.getById(bddId);
+			
+			//Recuperation de sa valeur
 			String value=request.getParameter(name);
 			
+			//Enregistrement en base
+			//ValueDAO.newValue(value, degree, field);
 		}
 				
-		if (request.getParameterMap().containsKey("degreeCodTitle")) {
+		/*if (request.getParameterMap().containsKey("degreeCodTitle")) {
 			//Update of a degree
 		}
 		else{
@@ -37,7 +47,7 @@ public class DegreeServlet extends HttpServlet{
 			for(int i = 0;i<labels.length;i++){
 				FieldDAO.createField(labels[i], types[i], newDegree);
 			}
-		}
+		}*/
 		response.sendRedirect("dashboard");
 	}
 }

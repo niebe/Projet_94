@@ -4,6 +4,7 @@ import java.util.List;
 
 import model.Field;
 import model.Template;
+import model.User;
 
 import org.hibernate.Criteria;
 import org.hibernate.Session;
@@ -43,5 +44,23 @@ public class FieldDAO {
         Criteria crit = session.createCriteria(Field.class);
         crit.add(Restrictions.like("template.id", id));
         return crit.list();
+	}
+	
+	public static int  getByName (String name){
+		int id = 0;
+		return id;
+	}
+	
+	public static Field getById(String id){
+		//configuring hibernate
+		Configuration configuration = new Configuration().configure(); 
+		//create session factory
+		SessionFactory sessionFactory = configuration.buildSessionFactory();
+		// 3. Get Session object
+		Session session = sessionFactory.openSession();
+
+		Criteria crit = session.createCriteria(Field.class);
+		crit.add(Restrictions.like("id", id));
+		return (Field) crit.uniqueResult();	
 	}
 }
