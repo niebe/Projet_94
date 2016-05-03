@@ -2,7 +2,7 @@ package model;
 
 public class Value {
 
-	private Integer id;
+	private int id;
 	private Field field;
 	private Degree degree;
 	private String text;

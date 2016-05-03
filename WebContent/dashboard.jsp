@@ -1,8 +1,9 @@
+<%@page import="model.Degree"%>
 <%@page import="model.Field"%>
 <%@page import="java.util.List"%>
 <%@page import="model.Template"%>
-<%@ page language="java" contentType="text/html; charset=ISO-8859-1"
-	pageEncoding="ISO-8859-1"%>
+<%@ page language="java" contentType="text/html; charset=UTF-8"
+	pageEncoding="UTF-8"%>
 <!DOCTYPE html PUBLIC "-//W3C//DTD HTML 4.01 Transitional//EN" "http://www.w3.org/TR/html4/loose.dtd">
 <html>
 <head>
@@ -43,7 +44,7 @@
 						<%
 							List<Field> fields =(List<Field>) request.getAttribute("fields");
 							for(int i = 0; i < fields.size();i++)
-								out.print(fields.get(i).getName() + " : <input value='" + fields.get(i).getType() +"...' type='text' disabled/>");					
+								out.print("<div>"+fields.get(i).getName() + " : <input value='" + fields.get(i).getType() +"...' type='text' disabled/></div>");					
 						%>
 					</div>
 					<input type="text" class="hidden" id="templateId" value="<%out.print(template.getId());%>" />
@@ -67,7 +68,7 @@
 					<button id="saveModifTemplate" type="submit" class="btn btn btn-success pull-right">Send</button>
 				</form>
 			</div>
-		<% }else{ %>
+		<% }else{ List<Degree> degrees =(List<Degree>) request.getAttribute("degrees"); %>
 			<div id="degreeList" class='listElement'>
 				<div class="panel-heading">
 						<h3 class="panel-title">Degrees</h3>
@@ -76,28 +77,22 @@
 				<table id="degreeTable" class="table table-striped table-condensed">
 					<thead>
 						<tr>
-							<th>Name</th>
-							<th>Level</th>
+							<th>Degree (code)</th>
+							<th>Template</th>							
 							<th>Action</th>
 						</tr>
 					</thead>
 					<tbody>
+					<% for(int i = 0; i < degrees.size(); i++){ %>	
 						<tr>
-							<td>DUT</td>
-							<td>BAC + 2</td>
+							<td><% out.print(degrees.get(i).getCodTitle()); %></td>
+							<td><% out.print(degrees.get(i).getTemplate().getTitle()); %></td>							
 							<td>
 								<button class="btn-success">Update</button>
 								<button class="btn-danger">Delete</button>
 							</td>
 						</tr>
-						<tr>
-							<td>License</td>
-							<td>BAC + 3</td>
-							<td>
-								<button class="btn-success">Update</button>
-								<button class="btn-danger">Delete</button>
-							</td>
-						</tr>
+					<% } %>
 				</table>			
 				</div>			
 			</div>
@@ -110,18 +105,19 @@
 					<div class="form-group">
 				    	<h3><% out.print(model.getTitle());%></h3>
 					</div>
-					<div class="form-group">
-				    	<label for="degreeId">Degree ID : </label>
-		    			<input type="text" class="form-control" name="degreeId" required>
+		    		<input type="text" class="form-control" name="degreeId" style="display:none">
+					<div class="form-group form-inline">
+				    	<label for="degreeCodTitle">Degree ID : </label>
+		    			<input type="text" class="form-control" name="degreeCodTitle" class="hidden">
 					</div>
 					<% for(int i = 0 ; i < questions.size(); i++){ %>
 						<div class="form-group form-inline degreeFieldInput">
 							<label><% out.print(questions.get(i).getName() + " : "); %></label>
-							<% if(questions.get(i).getType().equals("number")){ %>
+							<% if(questions.get(i).getType().toLowerCase().equals("number")){ %>
 								<input name='value_<% out.print(questions.get(i).getId());%>' class='form-control' type='text' placeholder='Enter a number...' />					
-							<% }else if(questions.get(i).getType().equals("text")){ %>
+							<% }else if(questions.get(i).getType().toLowerCase().equals("text")){ %>
 								<input name='value_<% out.print(questions.get(i).getId());%>' class='form-control' type='text' placeholder='Please complete...' />
-							<% }else if(questions.get(i).getType().equals("date")){ %>	
+							<% }else if(questions.get(i).getType().toLowerCase().equals("date")){ %>	
 								<input name='value_<% out.print(questions.get(i).getId());%>' class='form-control' type='text' placeholder='Choose a date...' />
 							<% } %>	
 						</div>

@@ -26,7 +26,7 @@ public class DashBoardServlet extends HttpServlet{
     	User user = (User) session.getAttribute("sessionUtilisateur");
     	
     	User userComplete = UserDAO.getByLogin(user.getLogin());
-    	
+    	    	
     	Template lastTemplate = TemplateDAO.getTemplate();
     	if(lastTemplate != null){    		
     		List<Field> fields = FieldDAO.getFieldOfTemplate(lastTemplate.getId());

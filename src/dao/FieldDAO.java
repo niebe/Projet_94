@@ -51,7 +51,7 @@ public class FieldDAO {
 		return id;
 	}
 	
-	public static Field getById(String id){
+	public static Field getById(Integer id){
 		//configuring hibernate
 		Configuration configuration = new Configuration().configure(); 
 		//create session factory
@@ -60,7 +60,7 @@ public class FieldDAO {
 		Session session = sessionFactory.openSession();
 
 		Criteria crit = session.createCriteria(Field.class);
-		crit.add(Restrictions.like("id", id));
+		crit.add(Restrictions.eq("id", id));
 		return (Field) crit.uniqueResult();	
 	}
 }

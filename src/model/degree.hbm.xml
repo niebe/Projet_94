@@ -5,5 +5,6 @@
         <id column="id_degree" name="id" type="java.lang.Integer" />
         <many-to-one column="id_template" name="template" class="model.Template" />
         <property column="degree_enable" name="enable" type="java.lang.Boolean" />
+        <property column="code" name="codTitle" type="java.lang.String" />
     </class>
 </hibernate-mapping>
